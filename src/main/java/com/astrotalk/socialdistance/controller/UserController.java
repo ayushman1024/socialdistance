@@ -35,12 +35,6 @@ public class UserController {
 	    userService.addFriend(requester, receiver);
 	    return new ResponseEntity<Boolean>(true,HttpStatus.OK);
 	  }
-	  
-//	  @PostMapping("/addFriend/{uid}/{fid}")
-//	  public ResponseEntity<Boolean> addFriend(@PathVariable("uid") long requester,@PathVariable("fid") long receiver) {
-//	    userService.addFriend(requester, receiver);
-//	    return new ResponseEntity<Boolean>(true,HttpStatus.OK);
-//	  }
 
 	  @GetMapping("/removeFriend/{uid}/{fid}")
 	  public ResponseEntity<Boolean> removeFriend(@PathVariable("uid") long requester,@PathVariable("fid") long receiver) {
