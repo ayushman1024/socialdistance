@@ -29,8 +29,8 @@ URL http://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/
 |--|--|--|
 | Add new user  | POST  |  /addUser |
 | Connect two user as friend   | GET | /addFriend/{uid}/{fid} |
-| Remove friendship | DELETE | /removeFriend/{uid}/{fid}** |
-| Get all connections at K distance from user uid  | GET | /getDistantConn/{uid}/{k}** |
+| Remove friendship | DELETE | /removeFriend/{uid}/{fid} |
+| Get all connections at K distance from user uid  | GET | /getDistantConn/{uid}/{k} |
 | Get friendlist of user with id "uid" | GET | /getFriendList/{uid} |
 
 - Add new user **Post /addUser** 
