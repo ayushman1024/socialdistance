@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "f095515f-5aed-44b2-8287-255e45c9742d",
+		"name": "Interview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\":\"ayushman123\",\r\n\t\"name\":\"Ayushman Srivastava\",\r\n\t\"email\":\"ayush12@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/addUser",
+					"protocol": "http",
+					"host": [
+						"ec2-3-132-212-32",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"addUser"
+					]
+				},
+				"description": "Post request with user's Name, unique username and email address."
+			},
+			"response": [
+				{
+					"name": "Add new user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"username\":\"ayushman123\",\r\n\t\"name\":\"Ayushman Srivastava\",\r\n\t\"email\":\"ayush12@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/addUser",
+							"protocol": "http",
+							"host": [
+								"ec2-3-132-212-32",
+								"us-east-2",
+								"compute",
+								"amazonaws",
+								"com"
+							],
+							"port": "8080",
+							"path": [
+								"addUser"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 15 Dec 2020 09:53:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"name\": \"Aniket Srivastava\",\n    \"username\": \"Aniket\",\n    \"email\": \"aniket@gmail.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Connect User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/addFriend/1/6",
+					"protocol": "http",
+					"host": [
+						"ec2-3-132-212-32",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"addFriend",
+						"1",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "See Friends of user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/getFriendList/6",
+					"protocol": "http",
+					"host": [
+						"ec2-3-132-212-32",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"getFriendList",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All connections atmost distance K",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/getDistantConn/6/2",
+					"protocol": "http",
+					"host": [
+						"ec2-3-132-212-32",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"getDistantConn",
+						"6",
+						"2"
+					]
+				},
+				"description": "Given an input integer K, a user should be able to view all connections at distance K\r\nfrom him. Distance is defined as the minimum steps needed to reach from user A to\r\nuser B. Some examples for more clarity.\r\na. For example, if A is a friend of B, then distance of B from A is 1.\r\nb. A is friend of B. B is a friend of C. C is a friend of D. Then Distance(A,D) = 3\r\nc. A ⇔ B , B ⇔ C, C ⇔ D, D ⇔ E, C ⇔ E. In this case Distance(A,E) = 3 as E\r\ncan be reached via C."
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Friend",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/removeFriend/3/6",
+					"protocol": "http",
+					"host": [
+						"ec2-3-132-212-32",
+						"us-east-2",
+						"compute",
+						"amazonaws",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"removeFriend",
+						"3",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "2624724c-a1ec-4770-996f-894962cab020",
+			"key": "url",
+			"value": "https://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/"
+		},
+		{
+			"id": "9ff07461-ae02-48f1-9764-d937f574092b",
+			"key": "port",
+			"value": "8080"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
