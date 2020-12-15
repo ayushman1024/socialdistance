@@ -73,20 +73,27 @@ public class UserService {
 		User user = repo.findById(id).get();
 		List<User> connectionList = user.getFriendList();
 		List<Long> ids = connectionList.stream().map(u -> u.getId()).collect(Collectors.toList());
-		List<User> allUsers = iterateConn(ids,ids,k).stream().map(uid -> repo.getOne(uid)).collect(Collectors.toList()) ;
+		List<Long> allLevelIds = iterateConn(ids,k);
+		allLevelIds.remove((long) id);
+		List<User> allUsers = allLevelIds.stream().map(uid -> repo.getOne(uid)).collect(Collectors.toList()) ;
 		return allUsers;
 	}
 
-	private List<Long> iterateConn(List<Long> connectionListIds, List<Long> iterateLevel, long k){
+	private List<Long> iterateConn(List<Long> connectionListIds, long k){
 		
-		if(k == 0) return connectionListIds;
-		Set<Long> ids = new LinkedHashSet<Long>();
-		if(k == 0) return connectionListIds;
-		for(long u: iterateLevel) {
-			List<Long> list = repo.getOne(u).getFriendList().stream().map(p -> p.getId()).collect(Collectors.toList());
-			ids.addAll(list);
+		Set<Long> allLevelIds = new LinkedHashSet<Long>(connectionListIds);
+		Set<Long> nextLevelIds = new LinkedHashSet<Long>(connectionListIds);
+		while(k!=0) {
+			Set<Long> tempIds = new LinkedHashSet<Long>();
+			
+			for(long u: nextLevelIds)
+				tempIds.addAll(repo.getOne(u).getFriendList().stream().map(p -> p.getId()).collect(Collectors.toList()));
+			nextLevelIds.clear();
+			nextLevelIds.addAll(tempIds);
+			allLevelIds.addAll(nextLevelIds);
+			k--;
 		}
-		return iterateConn(connectionListIds, new ArrayList<Long>(ids), --k);
+		return new ArrayList<Long>(allLevelIds);
 	}
 
 }
