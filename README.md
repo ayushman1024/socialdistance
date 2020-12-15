@@ -1,3 +1,4 @@
+
 # Social Distance
 Rest API implemented in Spring Boot and deployed on aws ec2.
 
@@ -24,18 +25,17 @@ We do not expect a UI but all interactions must be via REST APIs. Expecting foll
 
 URL http://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/
 
+|  | Method |	Mapping|
+|--|--|--|
+| Add new user  | POST  |  /addUser |
+| Connect two user as friend   | GET | /addFriend/{uid}/{fid} |
+| Remove friendship | DELETE | /removeFriend/{uid}/{fid}** |
+| Get all connections at K distance from user uid  | GET | /getDistantConn/{uid}/{k}** |
+| Get friendlist of user with id "uid" | GET | /getFriendList/{uid} |
+
 - Add new user **Post /addUser** 
 {
 "name" : "user name"
 "username" : " unique username"
 "email" : " user's email"
 }
-
-- Connect two user as friend 
-**Get /addFriend/{uid}/{fid}**
-- Remove friendship
-**Delete /removeFriend/{uid}/{fid}**
-- Get all connections at K distance from user uid 
-**Get /getDistantConn/{uid}/{k}**
-- Get friendlist of user with id "uid"
-**Get /getFriendList/{uid}**
