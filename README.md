@@ -22,6 +22,7 @@ We do not expect a UI but all interactions must be via REST APIs. Expecting foll
 
 ## REST API
 
+URL http://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/
 
 - Add new user **Post /addUser** 
 {
