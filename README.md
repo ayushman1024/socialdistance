@@ -34,7 +34,7 @@ URL http://ec2-3-132-212-32.us-east-2.compute.amazonaws.com:8080/
 - Connect two user as friend 
 **Get /addFriend/{uid}/{fid}**
 - Remove friendship
-**Get /removeFriend/{uid}/{fid}**
+**Delete /removeFriend/{uid}/{fid}**
 - Get all connections at K distance from user uid 
 **Get /getDistantConn/{uid}/{k}**
 - Get friendlist of user with id "uid"
